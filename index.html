@@ -544,8 +544,9 @@
         .stat-label {
             color: var(--gray);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            white-space: nowrap;
         }
 
         /* Clients Section */
@@ -580,6 +581,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
         }
 
         .client-logo:hover {
@@ -587,12 +589,18 @@
             border-color: var(--primary);
         }
 
-        .client-logo span {
-            color: var(--gray);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover img {
+            opacity: 1;
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
         }
 
         /* Portfolio Section */
@@ -1465,28 +1473,28 @@
                 <div class="stat-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
-                <div class="stat-label">Projects Completed</div>
+                <div class="stat-number"><span class="counter" data-target="864">0</span></div>
+                <div class="stat-label">Football Games Directed</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-icon">
                     <i class="fas fa-earth-americas"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="45">0</span>+</div>
+                <div class="stat-number"><span class="counter" data-target="12">0</span></div>
                 <div class="stat-label">Countries</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="80">0</span>+</div>
+                <div class="stat-number"><span class="counter" data-target="40">0</span>+</div>
                 <div class="stat-label">Happy Clients</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-icon">
                     <i class="fas fa-calendar-check"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+                <div class="stat-number"><span class="counter" data-target="30">0</span>+</div>
                 <div class="stat-label">Years Experience</div>
             </div>
         </div>
@@ -1500,23 +1508,23 @@
             <p class="section-subtitle">Partnering with the biggest names in football and sports broadcasting</p>
         </div>
         <div class="clients-track">
-            <div class="client-logo"><span>FIFA</span></div>
-            <div class="client-logo"><span>UEFA</span></div>
-            <div class="client-logo"><span>CONMEBOL</span></div>
-            <div class="client-logo"><span>CONCACAF</span></div>
-            <div class="client-logo"><span>SPL</span></div>
-            <div class="client-logo"><span>FOX Sports</span></div>
-            <div class="client-logo"><span>ESPN</span></div>
-            <div class="client-logo"><span>beIN Sports</span></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/FIFA_logo_without_slogan.svg" alt="FIFA"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/UEFA_logo.svg" alt="UEFA"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_conmebol.svg" alt="CONMEBOL"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Concacaf_logo.svg" alt="CONCACAF"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Saudi_Pro_League.svg" alt="Saudi Pro League"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Fox_Sports_Logo.svg" alt="FOX Sports"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg" alt="ESPN"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Bein_sport_logo.svg" alt="beIN Sports"></div>
             <!-- Duplicate for infinite scroll -->
-            <div class="client-logo"><span>FIFA</span></div>
-            <div class="client-logo"><span>UEFA</span></div>
-            <div class="client-logo"><span>CONMEBOL</span></div>
-            <div class="client-logo"><span>CONCACAF</span></div>
-            <div class="client-logo"><span>SPL</span></div>
-            <div class="client-logo"><span>FOX Sports</span></div>
-            <div class="client-logo"><span>ESPN</span></div>
-            <div class="client-logo"><span>beIN Sports</span></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/FIFA_logo_without_slogan.svg" alt="FIFA"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/UEFA_logo.svg" alt="UEFA"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_conmebol.svg" alt="CONMEBOL"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Concacaf_logo.svg" alt="CONCACAF"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Saudi_Pro_League.svg" alt="Saudi Pro League"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Fox_Sports_Logo.svg" alt="FOX Sports"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg" alt="ESPN"></div>
+            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Bein_sport_logo.svg" alt="beIN Sports"></div>
         </div>
     </section>
 
