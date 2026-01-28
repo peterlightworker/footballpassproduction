@@ -555,14 +555,20 @@
             overflow: hidden;
         }
 
-        .clients-track {
+        .clients-slider {
             display: flex;
-            gap: 4rem;
-            animation: scroll 30s linear infinite;
+            width: fit-content;
+            animation: scroll 25s linear infinite;
         }
 
-        .clients-track:hover {
+        .clients-slider:hover {
             animation-play-state: paused;
+        }
+
+        .clients-track {
+            display: flex;
+            gap: 3rem;
+            padding-right: 3rem;
         }
 
         @keyframes scroll {
@@ -572,8 +578,8 @@
 
         .client-logo {
             flex-shrink: 0;
-            width: 180px;
-            height: 100px;
+            width: 160px;
+            height: 90px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             display: flex;
@@ -581,7 +587,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
 
         .client-logo:hover {
@@ -601,6 +607,20 @@
         .client-logo:hover img {
             opacity: 1;
             filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--light);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover .logo-text {
+            opacity: 1;
+            color: var(--primary);
         }
 
         /* Portfolio Section */
@@ -1507,24 +1527,27 @@
             <h2 class="section-title">OUR CLIENTS</h2>
             <p class="section-subtitle">Partnering with the biggest names in football and sports broadcasting</p>
         </div>
-        <div class="clients-track">
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/FIFA_logo_without_slogan.svg" alt="FIFA"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/UEFA_logo.svg" alt="UEFA"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_conmebol.svg" alt="CONMEBOL"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Concacaf_logo.svg" alt="CONCACAF"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Saudi_Pro_League.svg" alt="Saudi Pro League"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Fox_Sports_Logo.svg" alt="FOX Sports"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg" alt="ESPN"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Bein_sport_logo.svg" alt="beIN Sports"></div>
-            <!-- Duplicate for infinite scroll -->
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/FIFA_logo_without_slogan.svg" alt="FIFA"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/UEFA_logo.svg" alt="UEFA"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_conmebol.svg" alt="CONMEBOL"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Concacaf_logo.svg" alt="CONCACAF"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Saudi_Pro_League.svg" alt="Saudi Pro League"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Fox_Sports_Logo.svg" alt="FOX Sports"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg" alt="ESPN"></div>
-            <div class="client-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Bein_sport_logo.svg" alt="beIN Sports"></div>
+        <div class="clients-slider">
+            <div class="clients-track">
+                <div class="client-logo"><span class="logo-text">FIFA</span></div>
+                <div class="client-logo"><span class="logo-text">UEFA</span></div>
+                <div class="client-logo"><span class="logo-text">CONMEBOL</span></div>
+                <div class="client-logo"><span class="logo-text">CONCACAF</span></div>
+                <div class="client-logo"><span class="logo-text">SPL</span></div>
+                <div class="client-logo"><span class="logo-text">FOX</span></div>
+                <div class="client-logo"><span class="logo-text">ESPN</span></div>
+                <div class="client-logo"><span class="logo-text">beIN</span></div>
+            </div>
+            <div class="clients-track">
+                <div class="client-logo"><span class="logo-text">FIFA</span></div>
+                <div class="client-logo"><span class="logo-text">UEFA</span></div>
+                <div class="client-logo"><span class="logo-text">CONMEBOL</span></div>
+                <div class="client-logo"><span class="logo-text">CONCACAF</span></div>
+                <div class="client-logo"><span class="logo-text">SPL</span></div>
+                <div class="client-logo"><span class="logo-text">FOX</span></div>
+                <div class="client-logo"><span class="logo-text">ESPN</span></div>
+                <div class="client-logo"><span class="logo-text">beIN</span></div>
+            </div>
         </div>
     </section>
 
