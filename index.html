@@ -651,21 +651,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #2a2a4a 0%, #1a1a2e 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             transition: transform 0.5s ease;
         }
 
         .portfolio-card:hover .portfolio-card-bg {
             transform: scale(1.1);
-        }
-
-        .portfolio-card-bg i {
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.3;
         }
 
         .portfolio-card-overlay {
@@ -1397,7 +1390,7 @@
     <section class="hero" id="home">
         <div class="hero-video-container">
             <video class="hero-video" autoplay muted loop playsinline>
-                <source src="hero-video.mov" type="video/quicktime">
+                <source src="hero-video.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-content">
@@ -1524,24 +1517,28 @@
         </div>
         <div class="clients-slider">
             <div class="clients-track">
-                <div class="client-logo"><span class="logo-text">FIFA</span></div>
-                <div class="client-logo"><span class="logo-text">UEFA</span></div>
-                <div class="client-logo"><span class="logo-text">CONMEBOL</span></div>
-                <div class="client-logo"><span class="logo-text">CONCACAF</span></div>
-                <div class="client-logo"><span class="logo-text">SPL</span></div>
-                <div class="client-logo"><span class="logo-text">FOX</span></div>
-                <div class="client-logo"><span class="logo-text">ESPN</span></div>
-                <div class="client-logo"><span class="logo-text">beIN</span></div>
+                <div class="client-logo"><img src="logos/FIFA_logo_without_slogan.svg.png" alt="FIFA"></div>
+                <div class="client-logo"><img src="logos/UEFA_full_logo.svg.png" alt="UEFA"></div>
+                <div class="client-logo"><img src="logos/CONMEBOL_logo_(2017).svg.png" alt="CONMEBOL"></div>
+                <div class="client-logo"><img src="logos/Concacaf_logo.svg" alt="CONCACAF"></div>
+                <div class="client-logo"><img src="logos/Roshn_Saudi_League_Logo.svg.png" alt="Saudi Pro League"></div>
+                <div class="client-logo"><img src="logos/BBC_Logo_2021.svg.png" alt="BBC"></div>
+                <div class="client-logo"><img src="logos/ITV1_logo_(2022).svg.png" alt="ITV"></div>
+                <div class="client-logo"><img src="logos/TNT_Sports_(2023).svg.png" alt="TNT Sports"></div>
+                <div class="client-logo"><img src="logos/BT_Sport_logo_2019.svg.png" alt="BT Sport"></div>
+                <div class="client-logo"><img src="logos/STV_logo_2014.svg.png" alt="STV"></div>
             </div>
             <div class="clients-track">
-                <div class="client-logo"><span class="logo-text">FIFA</span></div>
-                <div class="client-logo"><span class="logo-text">UEFA</span></div>
-                <div class="client-logo"><span class="logo-text">CONMEBOL</span></div>
-                <div class="client-logo"><span class="logo-text">CONCACAF</span></div>
-                <div class="client-logo"><span class="logo-text">SPL</span></div>
-                <div class="client-logo"><span class="logo-text">FOX</span></div>
-                <div class="client-logo"><span class="logo-text">ESPN</span></div>
-                <div class="client-logo"><span class="logo-text">beIN</span></div>
+                <div class="client-logo"><img src="logos/FIFA_logo_without_slogan.svg.png" alt="FIFA"></div>
+                <div class="client-logo"><img src="logos/UEFA_full_logo.svg.png" alt="UEFA"></div>
+                <div class="client-logo"><img src="logos/CONMEBOL_logo_(2017).svg.png" alt="CONMEBOL"></div>
+                <div class="client-logo"><img src="logos/Concacaf_logo.svg" alt="CONCACAF"></div>
+                <div class="client-logo"><img src="logos/Roshn_Saudi_League_Logo.svg.png" alt="Saudi Pro League"></div>
+                <div class="client-logo"><img src="logos/BBC_Logo_2021.svg.png" alt="BBC"></div>
+                <div class="client-logo"><img src="logos/ITV1_logo_(2022).svg.png" alt="ITV"></div>
+                <div class="client-logo"><img src="logos/TNT_Sports_(2023).svg.png" alt="TNT Sports"></div>
+                <div class="client-logo"><img src="logos/BT_Sport_logo_2019.svg.png" alt="BT Sport"></div>
+                <div class="client-logo"><img src="logos/STV_logo_2014.svg.png" alt="STV"></div>
             </div>
         </div>
     </section>
@@ -1555,9 +1552,7 @@
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Fifa Wolrd Cup 2026.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2026</span>
                     <h3>FIFA WORLD CUP 2026 USA</h3>
@@ -1568,9 +1563,7 @@
                 </div>
             </div>
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Saudi_Leauge.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2025/26</span>
                     <h3>SPL 2025/26</h3>
@@ -1581,9 +1574,7 @@
                 </div>
             </div>
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/2022_FIFA_World_Cup.png');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2022</span>
                     <h3>FIFA WORLD CUP 2022 QATAR</h3>
@@ -1594,9 +1585,7 @@
                 </div>
             </div>
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Concacaf_Gold_Cup_2021.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
                     <h3>GOLD CUP</h3>
@@ -1607,9 +1596,7 @@
                 </div>
             </div>
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
                     <h3>COPA LIBERTADORES 2024</h3>
@@ -1620,9 +1607,7 @@
                 </div>
             </div>
             <div class="portfolio-card reveal">
-                <div class="portfolio-card-bg">
-                    <i class="fas fa-image"></i>
-                </div>
+                <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a1a4a 0%, #2d2d6a 100%);"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
                     <h3>WOMEN'S EURO 2024</h3>
