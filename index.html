@@ -850,17 +850,26 @@
         }
 
         .testimonials-container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
         .testimonial-card {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             background: rgba(26, 26, 46, 0.5);
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .testimonial-quote {
@@ -1330,6 +1339,10 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1574,23 +1587,23 @@
         <div class="stats-grid">
             <div class="stat-card reveal">
                 <div class="stat-icon">
-                    <i class="fas fa-trophy"></i>
+                    <i class="fas fa-video"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="864">0</span></div>
-                <div class="stat-label">Football Games Directed</div>
+                <div class="stat-number"><span class="counter" data-target="3000">0</span>+</div>
+                <div class="stat-label">Live Matchday Credits</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-icon">
-                    <i class="fas fa-earth-americas"></i>
+                    <i class="fas fa-award"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="12">0</span></div>
-                <div class="stat-label">Countries</div>
+                <div class="stat-number"><span class="counter" data-target="2">0</span>x</div>
+                <div class="stat-label">Emmy Awards</div>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
-                <div class="stat-number"><span class="counter" data-target="40">0</span>+</div>
+                <div class="stat-number"><span class="counter" data-target="18">0</span>+</div>
                 <div class="stat-label">Happy Clients</div>
             </div>
             <div class="stat-card reveal">
@@ -1722,54 +1735,30 @@
             <h2 class="section-title">OUR SERVICES</h2>
             <p class="section-subtitle">Comprehensive production solutions for every aspect of football broadcasting</p>
         </div>
-        <div class="services-grid">
+        <div class="services-grid services-grid-3">
             <div class="service-card reveal">
                 <div class="service-icon">
                     <i class="fas fa-broadcast-tower"></i>
                 </div>
                 <h3>Live Broadcasting</h3>
-                <p>State-of-the-art live coverage with multi-camera setups, instant replays, and real-time graphics for immersive viewing experiences.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <p>World-class match direction for the biggest competitions on the planet. From FIFA World Cups to Champions League nights, Premier League weekends to Copa America finals - we deliver broadcast excellence that captures every moment of the beautiful game for audiences worldwide.</p>
+                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">
-                    <i class="fas fa-film"></i>
+                    <i class="fas fa-user-tie"></i>
                 </div>
-                <h3>Post-Production</h3>
-                <p>Professional editing, color grading, and visual effects to create compelling highlight reels, documentaries, and promotional content.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Graphics & AR</h3>
-                <p>Cutting-edge on-screen graphics, augmented reality elements, and data visualization to enhance viewer engagement.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fas fa-satellite-dish"></i>
-                </div>
-                <h3>OB Van Services</h3>
-                <p>Fully equipped outside broadcast vehicles with the latest technology for on-location production anywhere in the world.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fas fa-microphone"></i>
-                </div>
-                <h3>Commentary & Audio</h3>
-                <p>Professional audio production including commentary facilities, crowd sound capture, and multi-language broadcasting support.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h3>Executive Producer</h3>
+                <p>Strategic leadership and creative vision for major broadcast projects. We've served as Executive Producer for BBC's UEFA Women's Euro coverage, Scottish Cup, Viaplay's Scottish football portfolio, and BT Sport's comprehensive SPFL coverage - bringing editorial excellence to every production.</p>
+                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">
                     <i class="fas fa-clapperboard"></i>
                 </div>
                 <h3>Event Production</h3>
-                <p>End-to-end event production management including planning, coordination, and execution for tournaments and special events.</p>
-                <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <p>Complete event direction for football's marquee moments. From the FIFA Club World Cup Draw in Saudi Arabia to Copa America's spectacular opening ceremonies - we manage every aspect of production to create unforgettable broadcast experiences that resonate with global audiences.</p>
+                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1777,21 +1766,47 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-header reveal">
-            <span class="section-label">Testimonials</span>
+            <span class="section-label">References</span>
             <h2 class="section-title">WHAT CLIENTS SAY</h2>
-            <p class="section-subtitle">Hear from the organizations we've had the privilege to work with</p>
+            <p class="section-subtitle">Trusted by the biggest names in world football</p>
         </div>
         <div class="testimonials-container reveal">
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">Football Pass Production delivered exceptional quality for our tournament coverage. Their attention to detail and technical expertise made our event truly memorable for viewers worldwide.</p>
+                <p class="testimonial-text">Grant brings unparalleled expertise and professionalism to every FIFA production. His understanding of the global game and ability to deliver under pressure makes him an invaluable partner for our most prestigious events.</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="testimonial-info">
-                        <h4>Client Name</h4>
-                        <p>Position, Organization</p>
+                        <h4>Oscar Sanchez</h4>
+                        <p>Head of Broadcast, FIFA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">A world-class match director who consistently delivers exceptional coverage for our competitions. Football Pass Productions understands what it takes to capture the drama and passion of South American football.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>CONMEBOL</h4>
+                        <p>South American Football Confederation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">From Gold Cup finals to Nations League showdowns, Grant and his team deliver broadcast excellence that matches the intensity of CONCACAF competitions. A true professional in every sense.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>CONCACAF</h4>
+                        <p>Confederation of North, Central America and Caribbean Football</p>
                     </div>
                 </div>
             </div>
@@ -1812,7 +1827,7 @@
                         </div>
                         <div class="contact-item-text">
                             <h4>Email Us</h4>
-                            <p>info@footballpassproduction.com</p>
+                            <p>info@footballpassproduction.ae</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1880,8 +1895,8 @@
                 <p class="footer-company-name">Football Pass Productions FZE LLC</p>
                 <p>World-class sports broadcasting and production services for major football events worldwide. Bringing the beautiful game to screens everywhere.</p>
                 <div class="footer-contact-info">
-                    <a href="mailto:philipsg1@me.com"><i class="fas fa-envelope"></i> philipsg1@me.com</a>
-                    <a href="tel:+447411796546"><i class="fas fa-phone"></i> +44 7411 796546</a>
+                    <a href="mailto:info@footballpassproduction.ae"><i class="fas fa-envelope"></i> info@footballpassproduction.ae</a>
+                    <a href="tel:+971569987750"><i class="fas fa-phone"></i> +971 56 998 7750</a>
                 </div>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -1904,9 +1919,7 @@
                 <h4 class="footer-heading">Services</h4>
                 <ul class="footer-links">
                     <li><a href="#services">Live Broadcasting</a></li>
-                    <li><a href="#services">Post-Production</a></li>
-                    <li><a href="#services">Graphics & AR</a></li>
-                    <li><a href="#services">OB Van Services</a></li>
+                    <li><a href="#services">Executive Producer</a></li>
                     <li><a href="#services">Event Production</a></li>
                 </ul>
             </div>
