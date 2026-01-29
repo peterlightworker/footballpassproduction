@@ -26,6 +26,13 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         body {
@@ -590,7 +597,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.75rem;
-            white-space: nowrap;
         }
 
         /* Clients Section */
@@ -790,7 +796,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -802,6 +808,8 @@
             padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -835,6 +843,7 @@
             color: var(--gray);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
+            flex: 1;
         }
 
         .service-link {
@@ -1322,12 +1331,10 @@
         }
 
         /* Responsive */
+
+        /* Large tablets / small desktops */
         @media (max-width: 1200px) {
             .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -1341,6 +1348,7 @@
             }
         }
 
+        /* Tablets */
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
@@ -1352,21 +1360,43 @@
 
             .about-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .about-image {
                 order: -1;
             }
 
+            .about-image-main {
+                height: 350px;
+            }
+
+            .about-image-accent {
+                width: 150px;
+                height: 150px;
+                bottom: -20px;
+                right: -20px;
+            }
+
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .testimonials-container {
                 grid-template-columns: 1fr;
             }
+
+            .contact-info h3 {
+                font-size: 2.5rem;
+            }
+
+            .about-content h3 {
+                font-size: 2.5rem;
+            }
         }
 
+        /* Small tablets / large phones (landscape) */
         @media (max-width: 768px) {
             section {
                 padding: 4rem 5%;
@@ -1376,8 +1406,16 @@
                 font-size: 3rem;
             }
 
+            .hero p {
+                font-size: 1rem;
+            }
+
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .portfolio-card {
+                height: 280px;
             }
 
             .services-grid {
@@ -1385,7 +1423,21 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .stat-label {
+                white-space: normal;
+                font-size: 0.7rem;
             }
 
             .about-features {
@@ -1394,6 +1446,10 @@
 
             .highlights-list {
                 grid-template-columns: 1fr;
+            }
+
+            .about-image-main {
+                height: 280px;
             }
 
             .footer-content {
@@ -1409,6 +1465,391 @@
 
             .footer-legal {
                 justify-content: center;
+            }
+
+            .chat-form {
+                max-height: none;
+                padding: 1.5rem;
+            }
+
+            .chat-messages {
+                min-height: 200px;
+                max-height: 300px;
+            }
+
+            .client-logo {
+                width: 120px;
+                height: 70px;
+                padding: 0.8rem;
+            }
+
+            .clients-track {
+                gap: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .testimonials-single .testimonial-card {
+                padding: 2rem;
+            }
+
+            .testimonials-single .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            section {
+                padding: 3rem 4%;
+            }
+
+            .navbar {
+                padding: 0.8rem 4%;
+            }
+
+            .navbar.scrolled {
+                padding: 0.6rem 4%;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .logo-icon i {
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.85rem;
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-label {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .about-image-main {
+                height: 220px;
+            }
+
+            .about-image-accent {
+                width: 100px;
+                height: 100px;
+                bottom: -15px;
+                right: -15px;
+            }
+
+            .about-content h3 {
+                font-size: 2rem;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+            }
+
+            .about-lead {
+                font-size: 1.2rem;
+            }
+
+            .about-highlights {
+                padding: 1rem;
+            }
+
+            .about-feature-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .about-feature-icon i {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat-card {
+                padding: 1.2rem 0.8rem;
+                border-radius: 15px;
+            }
+
+            .stat-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .stat-icon i {
+                font-size: 1.3rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .portfolio-card {
+                height: 240px;
+            }
+
+            .portfolio-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .portfolio-card p {
+                font-size: 0.8rem;
+            }
+
+            .portfolio-card-overlay {
+                padding: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .service-icon {
+                width: 55px;
+                height: 55px;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonials-single .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-quote {
+                font-size: 3rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .testimonials-single .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .contact-info h3 {
+                font-size: 2rem;
+            }
+
+            .contact-info p {
+                font-size: 0.95rem;
+            }
+
+            .contact-item-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-item-icon i {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                gap: 0.75rem;
+            }
+
+            .social-link {
+                width: 42px;
+                height: 42px;
+            }
+
+            .chat-form {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .chat-header {
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .chat-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .chat-avatar i {
+                font-size: 1.1rem;
+            }
+
+            .chat-message {
+                max-width: 90%;
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .chat-input {
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .chat-send {
+                width: 42px;
+                height: 42px;
+            }
+
+            .chat-send i {
+                font-size: 1rem;
+            }
+
+            .client-logo {
+                width: 100px;
+                height: 60px;
+                padding: 0.6rem;
+                border-radius: 10px;
+            }
+
+            .clients-track {
+                gap: 1rem;
+                padding-right: 1rem;
+            }
+
+            .footer {
+                padding: 3rem 4% 1.5rem;
+            }
+
+            .footer-brand .logo {
+                font-size: 1.4rem;
+            }
+
+            .footer-brand p {
+                font-size: 0.85rem;
+            }
+
+            .footer-heading {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.85rem;
+            }
+
+            .footer-bottom p {
+                font-size: 0.8rem;
+            }
+
+            .footer-legal {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .footer-legal a {
+                font-size: 0.8rem;
+            }
+
+            .mobile-menu .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu .nav-links {
+                gap: 1.5rem;
+            }
+
+            .scroll-indicator span {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.7rem;
+            }
+
+            .contact-info h3 {
+                font-size: 1.7rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
             }
         }
 
@@ -1448,13 +1889,83 @@
         /* Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Slide from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Slide from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Scale up */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays for child elements */
+        .reveal-stagger > *:nth-child(1) { transition-delay: 0s; }
+        .reveal-stagger > *:nth-child(2) { transition-delay: 0.15s; }
+        .reveal-stagger > *:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-stagger > *:nth-child(4) { transition-delay: 0.45s; }
+
+        /* Hero entrance animation */
+        .hero-content {
+            animation: heroFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+        }
+
+        .hero-buttons {
+            animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both;
+        }
+
+        .scroll-indicator {
+            animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) 1.2s both, bounce 2s infinite 2.4s;
         }
     </style>
 </head>
@@ -1527,14 +2038,14 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
-            <div class="about-image reveal">
+            <div class="about-image reveal-left">
                 <div class="about-image-main">
                     <i class="fas fa-image"></i>
                     <span>Image Placeholder</span>
                 </div>
                 <div class="about-image-accent"></div>
             </div>
-            <div class="about-content reveal">
+            <div class="about-content reveal-right">
                 <span class="section-label">Who We Are</span>
                 <h3>MEET <span>GRANT PHILIPS</span></h3>
                 <p class="about-lead">Match Director & Founder</p>
@@ -1606,29 +2117,29 @@
             <h2 class="section-title">NUMBERS THAT SPEAK</h2>
             <p class="section-subtitle">Years of experience delivering world-class football coverage across the globe</p>
         </div>
-        <div class="stats-grid">
-            <div class="stat-card reveal">
+        <div class="stats-grid reveal-stagger">
+            <div class="stat-card reveal-scale">
                 <div class="stat-icon">
                     <i class="fas fa-video"></i>
                 </div>
                 <div class="stat-number"><span class="counter" data-target="3000">0</span>+</div>
                 <div class="stat-label">Live Matchday Credits</div>
             </div>
-            <div class="stat-card reveal">
+            <div class="stat-card reveal-scale">
                 <div class="stat-icon">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="stat-number"><span class="counter" data-target="2">0</span>x</div>
                 <div class="stat-label">Emmy Awards</div>
             </div>
-            <div class="stat-card reveal">
+            <div class="stat-card reveal-scale">
                 <div class="stat-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
                 <div class="stat-number"><span class="counter" data-target="18">0</span>+</div>
                 <div class="stat-label">Happy Clients</div>
             </div>
-            <div class="stat-card reveal">
+            <div class="stat-card reveal-scale">
                 <div class="stat-icon">
                     <i class="fas fa-calendar-check"></i>
                 </div>
@@ -1645,7 +2156,7 @@
             <h2 class="section-title">OUR CLIENTS</h2>
             <p class="section-subtitle">Partnering with the biggest names in football and sports broadcasting</p>
         </div>
-        <div class="clients-slider">
+        <div class="clients-slider reveal">
             <div class="clients-track">
                 <div class="client-logo"><img src="logos/FIFA_logo_without_slogan.svg.png" alt="FIFA"></div>
                 <div class="client-logo logo-color"><img src="logos/UEFA_full_logo.svg.png" alt="UEFA"></div>
@@ -1681,7 +2192,7 @@
             <p class="section-subtitle">A showcase of our most prestigious productions from around the world</p>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background-image: url('featured projects/Fifa Wolrd Cup 2026.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2026</span>
@@ -1692,7 +2203,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background-image: url('featured projects/Saudi_Leauge.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2025/26</span>
@@ -1703,7 +2214,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background-image: url('featured projects/2022_FIFA_World_Cup.png');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2022</span>
@@ -1714,7 +2225,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background-image: url('featured projects/Concacaf_Gold_Cup_2021.jpg');"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
@@ -1725,7 +2236,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
@@ -1736,7 +2247,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-            <div class="portfolio-card reveal">
+            <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a1a4a 0%, #2d2d6a 100%);"></div>
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2024</span>
@@ -1757,8 +2268,8 @@
             <h2 class="section-title">OUR SERVICES</h2>
             <p class="section-subtitle">Comprehensive production solutions for every aspect of football broadcasting</p>
         </div>
-        <div class="services-grid services-grid-3">
-            <div class="service-card reveal">
+        <div class="services-grid reveal-stagger">
+            <div class="service-card reveal-scale">
                 <div class="service-icon">
                     <i class="fas fa-broadcast-tower"></i>
                 </div>
@@ -1766,7 +2277,7 @@
                 <p>World-class match direction for the biggest competitions on the planet. From FIFA World Cups to Champions League nights, Premier League weekends to Copa America finals - we deliver broadcast excellence that captures every moment of the beautiful game for audiences worldwide.</p>
                 <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service-card reveal">
+            <div class="service-card reveal-scale">
                 <div class="service-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
@@ -1774,12 +2285,20 @@
                 <p>Strategic leadership and creative vision for major broadcast projects. We've served as Executive Producer for BBC's UEFA Women's Euro coverage, Scottish Cup, Viaplay's Scottish football portfolio, and BT Sport's comprehensive SPFL coverage - bringing editorial excellence to every production.</p>
                 <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service-card reveal">
+            <div class="service-card reveal-scale">
                 <div class="service-icon">
                     <i class="fas fa-clapperboard"></i>
                 </div>
                 <h3>Event Production</h3>
                 <p>Complete event direction for football's marquee moments. From the FIFA Club World Cup Draw in Saudi Arabia to Copa America's spectacular opening ceremonies - we manage every aspect of production to create unforgettable broadcast experiences that resonate with global audiences.</p>
+                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card reveal-scale">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Consultancy Services</h3>
+                <p>Expert guidance for broadcasters, federations, and rights holders looking to elevate their football coverage. Drawing on three decades of experience across FIFA, UEFA, and CONMEBOL competitions, we provide strategic consultancy on broadcast workflows, technical infrastructure, and production best practices tailored to your organisation's needs.</p>
                 <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -1792,7 +2311,7 @@
             <h2 class="section-title">WHAT CLIENTS SAY</h2>
             <p class="section-subtitle">Trusted by the biggest names in world football</p>
         </div>
-        <div class="testimonials-container testimonials-single reveal">
+        <div class="testimonials-container testimonials-single reveal-scale">
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
                 <p class="testimonial-text">Grant is one of the most experienced and reliable match directors in world football. His ability to capture the emotion and intensity of the game while maintaining the highest broadcast standards has made him an essential part of our biggest events. From World Cup semi-finals to Club World Cup showcases, he consistently delivers excellence under pressure.</p>
@@ -1812,7 +2331,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
-            <div class="contact-info reveal">
+            <div class="contact-info reveal-left">
                 <span class="section-label">Contact Us</span>
                 <h3>LET'S <span>WORK</span> TOGETHER</h3>
                 <p>Ready to bring your football event to screens around the world? Get in touch with our team to discuss your project requirements.</p>
@@ -1837,7 +2356,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chat-form reveal">
+            <div class="chat-form reveal-right">
                 <div class="chat-header">
                     <div class="chat-avatar">
                         <i class="fas fa-futbol"></i>
@@ -1993,7 +2512,7 @@
         });
 
         // Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
 
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
