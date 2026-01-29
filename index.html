@@ -2013,7 +2013,7 @@
         const chatSend = document.getElementById('chatSend');
 
         // Web3Forms Access Key - Get yours at https://web3forms.com
-        const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE'; // Replace with your access key
+        const WEB3FORMS_KEY = '0a47078c-844c-4b2f-8abb-cb57d922e689';
 
         let chatStep = 0;
         const chatData = {
@@ -2041,6 +2041,7 @@
         const submitToWeb3Forms = async () => {
             const formData = {
                 access_key: WEB3FORMS_KEY,
+                to: 'grant@footballpassproductions.ae',
                 subject: `New Inquiry from ${chatData.name} - Football Pass Production`,
                 from_name: 'Football Pass Website',
                 name: chatData.name,
