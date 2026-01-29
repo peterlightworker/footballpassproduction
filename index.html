@@ -689,7 +689,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -2197,18 +2197,7 @@
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2026</span>
                     <h3>FIFA WORLD CUP 2026 USA</h3>
-                    <p>North America's biggest football event</p>
-                </div>
-                <div class="portfolio-card-link">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="portfolio-card reveal-scale">
-                <div class="portfolio-card-bg" style="background-image: url('featured projects/Saudi_Leauge.jpg');"></div>
-                <div class="portfolio-card-overlay">
-                    <span class="portfolio-card-year">2025/26</span>
-                    <h3>SPL 2025/26</h3>
-                    <p>Saudi Pro League Coverage</p>
+                    <p>Including Semi Final coverage</p>
                 </div>
                 <div class="portfolio-card-link">
                     <i class="fas fa-arrow-right"></i>
@@ -2219,7 +2208,29 @@
                 <div class="portfolio-card-overlay">
                     <span class="portfolio-card-year">2022</span>
                     <h3>FIFA WORLD CUP 2022 QATAR</h3>
-                    <p>Historic Middle East World Cup</p>
+                    <p>14 matches including Semi Final & 3rd/4th Place</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/copa_america_2024.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">2024</span>
+                    <h3>COPA AMERICA 2024</h3>
+                    <p>Opening Ceremony + Final</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/fifa_club_world_cup.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">2023 & 2025</span>
+                    <h3>FIFA CLUB WORLD CUP</h3>
+                    <p>Global club championship coverage</p>
                 </div>
                 <div class="portfolio-card-link">
                     <i class="fas fa-arrow-right"></i>
@@ -2228,31 +2239,42 @@
             <div class="portfolio-card reveal-scale">
                 <div class="portfolio-card-bg" style="background-image: url('featured projects/Concacaf_Gold_Cup_2021.jpg');"></div>
                 <div class="portfolio-card-overlay">
-                    <span class="portfolio-card-year">2024</span>
-                    <h3>GOLD CUP</h3>
-                    <p>CONCACAF Championship</p>
+                    <span class="portfolio-card-year">Multiple Editions</span>
+                    <h3>CONCACAF GOLD CUP</h3>
+                    <p>Multiple editions including Finals</p>
                 </div>
                 <div class="portfolio-card-link">
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
             <div class="portfolio-card reveal-scale">
-                <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);"></div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/champions_league.jpg');"></div>
                 <div class="portfolio-card-overlay">
-                    <span class="portfolio-card-year">2024</span>
-                    <h3>COPA LIBERTADORES 2024</h3>
-                    <p>South America's Premier Club Competition</p>
+                    <span class="portfolio-card-year">2000 - Present</span>
+                    <h3>UEFA CHAMPIONS LEAGUE & EUROPA LEAGUE</h3>
+                    <p>Europe's premier club competitions</p>
                 </div>
                 <div class="portfolio-card-link">
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
             <div class="portfolio-card reveal-scale">
-                <div class="portfolio-card-bg" style="background: linear-gradient(135deg, #1a1a4a 0%, #2d2d6a 100%);"></div>
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Saudi_Leauge.jpg');"></div>
                 <div class="portfolio-card-overlay">
-                    <span class="portfolio-card-year">2024</span>
-                    <h3>WOMEN'S EURO 2024</h3>
-                    <p>European Women's Championship</p>
+                    <span class="portfolio-card-year">2023 - Present</span>
+                    <h3>SAUDI PRO LEAGUE</h3>
+                    <p>Kingdom's top-flight football coverage</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/premier_league.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">1999 - Present</span>
+                    <h3>PREMIER LEAGUE</h3>
+                    <p>The world's most-watched football league</p>
                 </div>
                 <div class="portfolio-card-link">
                     <i class="fas fa-arrow-right"></i>
@@ -2532,7 +2554,7 @@
         const chatSend = document.getElementById('chatSend');
 
         // Web3Forms Access Key - Get yours at https://web3forms.com
-        const WEB3FORMS_KEY = '0a47078c-844c-4b2f-8abb-cb57d922e689';
+        const WEB3FORMS_KEY = '0bd889e1-42dd-42d4-b7c3-89af707198dc';
 
         let chatStep = 0;
         const chatData = {
@@ -2560,21 +2582,14 @@
         const submitToWeb3Forms = async () => {
             const formData = {
                 access_key: WEB3FORMS_KEY,
-                to: 'grant@footballpassproductions.ae',
                 subject: `New Inquiry from ${chatData.name} - Football Pass Production`,
                 from_name: 'Football Pass Website',
+                replyto: chatData.email,
                 name: chatData.name,
                 email: chatData.email,
                 service_interest: chatData.service,
                 project_details: chatData.message,
-                message: `
-New Contact Form Submission
-
-Name: ${chatData.name}
-Email: ${chatData.email}
-Service Interest: ${chatData.service}
-Project Details: ${chatData.message}
-                `
+                message: `New Contact Form Submission\n\nName: ${chatData.name}\nEmail: ${chatData.email}\nService Interest: ${chatData.service}\nProject Details: ${chatData.message}`
             };
 
             try {
