@@ -386,8 +386,7 @@
         }
 
         .about-image {
-            position: sticky;
-            top: 100px;
+            position: relative;
         }
 
         .about-image-main {
@@ -1850,19 +1849,22 @@
             }
         }
 
-        /* Loading Animation */
+        /* Loading Screen */
         .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark);
+            background: #000;
+            z-index: 9999;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
         }
 
         .loading-screen.hidden {
@@ -1870,17 +1872,257 @@
             visibility: hidden;
         }
 
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        /* Multiview grid background */
+        .loader-multiview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 3px;
+            width: 90%;
+            max-width: 700px;
+            aspect-ratio: 16/9;
+            background: #111;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .loader-cam {
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+        }
+
+        .loader-cam::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.015) 2px,
+                rgba(255,255,255,0.015) 4px
+            );
+        }
+
+        .loader-cam-label {
+            position: absolute;
+            bottom: 6px;
+            left: 8px;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .loader-cam-signal {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        .loader-cam.active {
+            border-color: var(--primary);
+            box-shadow: inset 0 0 20px rgba(0,255,136,0.05);
+        }
+
+        .loader-cam.active .loader-cam-signal {
+            background: var(--primary);
+            animation: blink 1s step-end infinite;
+        }
+
+        .loader-cam.on-air {
+            border-color: #ff3333;
+            box-shadow: inset 0 0 20px rgba(255,51,51,0.08);
+        }
+
+        .loader-cam.on-air .loader-cam-signal {
+            background: #ff3333;
+            animation: blink 0.5s step-end infinite;
+        }
+
+        .loader-cam-onair-badge {
+            display: none;
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            background: #ff3333;
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 2px 6px;
+            text-transform: uppercase;
+        }
+
+        .loader-cam.on-air .loader-cam-onair-badge {
+            display: block;
+        }
+
+        /* Waveform animation inside active cam */
+        .loader-cam-waveform {
+            display: none;
+            position: absolute;
+            bottom: 18px;
+            left: 8px;
+            right: 8px;
+            height: 20px;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .loader-cam.on-air .loader-cam-waveform {
+            display: flex;
+        }
+
+        .loader-cam-waveform span {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 1px;
+            animation: wave 0.8s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .loader-cam-waveform span:nth-child(1) { animation-delay: 0s; height: 40%; }
+        .loader-cam-waveform span:nth-child(2) { animation-delay: 0.1s; height: 70%; }
+        .loader-cam-waveform span:nth-child(3) { animation-delay: 0.2s; height: 100%; }
+        .loader-cam-waveform span:nth-child(4) { animation-delay: 0.3s; height: 60%; }
+        .loader-cam-waveform span:nth-child(5) { animation-delay: 0.4s; height: 80%; }
+        .loader-cam-waveform span:nth-child(6) { animation-delay: 0.5s; height: 50%; }
+        .loader-cam-waveform span:nth-child(7) { animation-delay: 0.6s; height: 90%; }
+        .loader-cam-waveform span:nth-child(8) { animation-delay: 0.7s; height: 40%; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Timecode display */
+        .loader-timecode {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        /* Bottom console area */
+        .loader-console {
+            width: 90%;
+            max-width: 700px;
+        }
+
+        .loader-log {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+            min-height: 80px;
+        }
+
+        .loader-log-line {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .loader-log-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loader-log-line.current {
+            color: var(--primary);
+        }
+
+        .loader-log-line.onair {
+            color: #ff3333;
+            font-weight: 700;
+        }
+
+        .loader-log-timestamp {
+            color: rgba(255,255,255,0.2);
+            flex-shrink: 0;
+        }
+
+        .loader-log-line.current .loader-log-timestamp {
+            color: rgba(0,255,136,0.5);
+        }
+
+        .loader-log-line.onair .loader-log-timestamp {
+            color: rgba(255,51,51,0.6);
+        }
+
+        /* Progress bar */
+        .loader-progress-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .loader-progress-bar {
+            flex: 1;
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .loader-progress-pct {
+            font-size: 0.7rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            width: 36px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .loader-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.15);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .loader-multiview {
+                gap: 2px;
+            }
+            .loader-log-line {
+                font-size: 0.65rem;
+            }
+            .loader-brand {
+                font-size: 0.7rem;
+            }
         }
 
         /* Reveal Animations */
@@ -1969,7 +2211,23 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <div class="loader"></div>
+        <div class="loader-brand">Football Pass Productions</div>
+        <div class="loader-multiview">
+            <div class="loader-cam" id="lc1"><div class="loader-cam-label">CAM 1</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-cam" id="lc2"><div class="loader-cam-label">CAM 2</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-cam" id="lc3"><div class="loader-cam-label">CAM 3</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-cam" id="lc4"><div class="loader-cam-label">CAM 4</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-cam" id="lc5"><div class="loader-cam-label">CAM 5</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-cam" id="lc6"><div class="loader-cam-label">CAM 6</div><div class="loader-cam-signal"></div><div class="loader-cam-onair-badge">On Air</div><div class="loader-cam-waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="loader-timecode" id="loaderTimecode">00:00:00:00</div>
+        </div>
+        <div class="loader-console">
+            <div class="loader-log" id="loaderLog"></div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-bar"><div class="loader-progress-fill" id="loaderFill"></div></div>
+                <div class="loader-progress-pct" id="loaderPct">0%</div>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -2553,12 +2811,100 @@
     </footer>
 
     <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.loading-screen').classList.add('hidden');
-            }, 1000);
-        });
+        // Broadcast Loading Screen
+        (function() {
+            const steps = [
+                { msg: 'Initialising multiview…',         cam: null,  pct: 8,   cls: 'current' },
+                { msg: 'Establishing signal feeds…',      cam: 'lc1', pct: 20,  cls: 'current' },
+                { msg: 'Routing cameras to desk…',        cam: 'lc2', pct: 32,  cls: 'current' },
+                { msg: 'Checking comms & talkback…',      cam: 'lc3', pct: 44,  cls: 'current' },
+                { msg: 'Selecting the right camera…',     cam: 'lc4', pct: 58,  cls: 'current' },
+                { msg: 'Standby all positions…',          cam: 'lc5', pct: 72,  cls: 'current' },
+                { msg: 'Camera 1 — ready to go…',         cam: 'lc6', pct: 86,  cls: 'current' },
+                { msg: 'Camera 1 on Air — TAKE',          cam: 'lc1', pct: 100, cls: 'onair'   },
+            ];
+
+            const log      = document.getElementById('loaderLog');
+            const fill     = document.getElementById('loaderFill');
+            const pctEl    = document.getElementById('loaderPct');
+            const tcEl     = document.getElementById('loaderTimecode');
+            const cams     = document.querySelectorAll('.loader-cam');
+            let lineEls    = [];
+            let frame      = 0;
+            let stepIndex  = 0;
+
+            // Timecode ticker
+            let h=0, m=0, s=0, f=0;
+            const tcInterval = setInterval(() => {
+                f++; if(f>=25){f=0;s++;} if(s>=60){s=0;m++;} if(m>=60){m=0;h++;}
+                tcEl.textContent = [h,m,s,f].map(n=>String(n).padStart(2,'0')).join(':');
+            }, 40);
+
+            function pad(n){ return String(n).padStart(2,'0'); }
+
+            function now() {
+                const d = new Date();
+                return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+            }
+
+            function activateCam(id, isOnAir) {
+                cams.forEach(c => c.classList.remove('active','on-air'));
+                if (!id) return;
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.classList.add(isOnAir ? 'on-air' : 'active');
+            }
+
+            function runStep(i) {
+                if (i >= steps.length) return;
+                const step = steps[i];
+
+                // Dim previous line
+                lineEls.forEach(l => l.classList.remove('current','onair'));
+
+                // Add new log line
+                const line = document.createElement('div');
+                line.className = `loader-log-line ${step.cls}`;
+                line.innerHTML = `<span class="loader-log-timestamp">${now()}</span>${step.msg}`;
+                log.appendChild(line);
+                lineEls.push(line);
+
+                // Keep only last 4 lines visible
+                if (lineEls.length > 4) {
+                    lineEls[lineEls.length - 5].style.opacity = '0.15';
+                }
+
+                requestAnimationFrame(() => line.classList.add('visible'));
+
+                // Progress bar
+                fill.style.width = step.pct + '%';
+                pctEl.textContent = step.pct + '%';
+
+                // Camera highlight
+                activateCam(step.cam, step.cls === 'onair');
+            }
+
+            // Run steps at intervals
+            const interval = setInterval(() => {
+                runStep(stepIndex);
+                stepIndex++;
+                if (stepIndex >= steps.length) {
+                    clearInterval(interval);
+                    // Wait then dismiss
+                    setTimeout(() => {
+                        clearInterval(tcInterval);
+                        document.querySelector('.loading-screen').classList.add('hidden');
+                    }, 900);
+                }
+            }, 420);
+
+            // Safety fallback
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.querySelector('.loading-screen').classList.add('hidden');
+                }, 6000);
+            });
+        })();
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
