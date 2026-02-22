@@ -400,7 +400,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center;
+            object-position: center center;
             display: block;
         }
 
@@ -1041,7 +1041,8 @@
             background: var(--dark);
             border-radius: 30px;
             padding: 2rem;
-            max-height: 600px;
+            min-height: 520px;
+            max-height: 800px;
             display: flex;
             flex-direction: column;
         }
@@ -1099,6 +1100,7 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             padding-right: 0.5rem;
+            min-height: 300px;
         }
 
         .chat-message {
@@ -1466,8 +1468,8 @@
             }
 
             .chat-messages {
-                min-height: 200px;
-                max-height: 300px;
+                min-height: 250px;
+                max-height: 400px;
             }
 
             .client-logo {
@@ -2040,9 +2042,9 @@
             <div class="about-content reveal-right">
                 <span class="section-label">Who We Are</span>
                 <h3>MEET <span>GRANT PHILIPS</span></h3>
-                <p class="about-lead">Match Director & Founder</p>
+                <p class="about-lead">Live Director & Founder</p>
                 <p class="about-text">
-                    At the helm of Football Pass Productions FZE LLC is Grant Philips - an Executive Producer, Match Director, and multi-Emmy Award winner with over 3,000 live matchday credits across a distinguished 30-year career in sports television production.
+                    At the helm of Football Pass Productions FZE LLC is Grant Philips - an Executive Producer, Live Director, and multi-Emmy Award winner with over 3,000 live matchday credits across a distinguished 30-year career in sports television production.
                 </p>
                 <p class="about-text">
                     From FIFA World Cups to Copa America finals, from the Saudi Pro League to the UEFA Champions League, we've delivered world-class coverage for the biggest competitions, broadcasters, rights holders, and federations across the globe.
@@ -2056,8 +2058,37 @@
                         <li><i class="fas fa-trophy"></i> FIFA Club World Cup 2023 & 2025</li>
                         <li><i class="fas fa-trophy"></i> CONCACAF Gold Cup (Multiple editions + Finals)</li>
                         <li><i class="fas fa-trophy"></i> UEFA Champions League & Europa League (2000 - Present)</li>
-                        <li><i class="fas fa-trophy"></i> Saudi Pro League (2023 - Present)</li>
+                        <li><i class="fas fa-trophy"></i> Saudi Pro League (2023 - Present) — via IMG</li>
                         <li><i class="fas fa-trophy"></i> Premier League (1999 - Present)</li>
+                        <li><i class="fas fa-trophy"></i> Multiple Global Finals (Men's & Women's)</li>
+                    </ul>
+                </div>
+                <div class="about-highlights">
+                    <h4>Live Ceremony Director</h4>
+                    <ul class="highlights-list">
+                        <li><i class="fas fa-star"></i> Copa America 2024 Opening Ceremony</li>
+                        <li><i class="fas fa-star"></i> FIFA Club World Cup Draw (Saudi Arabia)</li>
+                        <li><i class="fas fa-star"></i> Multiple Kings Cup Finals</li>
+                        <li><i class="fas fa-star"></i> Amir Cup Final</li>
+                        <li><i class="fas fa-star"></i> ACF Final</li>
+                        <li><i class="fas fa-star"></i> Super Cup Final</li>
+                        <li><i class="fas fa-star"></i> Amir Cup Final (Qatar)</li>
+                    </ul>
+                </div>
+                <div class="about-highlights">
+                    <h4>Live Music</h4>
+                    <ul class="highlights-list">
+                        <li><i class="fas fa-music"></i> Shakira</li>
+                        <li><i class="fas fa-music"></i> Feid</li>
+                        <li><i class="fas fa-music"></i> Jason Derulo</li>
+                    </ul>
+                </div>
+                <div class="about-highlights">
+                    <h4>Credits</h4>
+                    <ul class="highlights-list">
+                        <li><i class="fas fa-certificate"></i> BBC Women's Euro — Project Lead (via Sunset + Vine)</li>
+                        <li><i class="fas fa-certificate"></i> FIFA, CONCACAF & CONMEBOL events — HBS</li>
+                        <li><i class="fas fa-certificate"></i> Saudi Pro League — IMG</li>
                     </ul>
                 </div>
                 <div class="about-features">
@@ -2156,10 +2187,16 @@
                 <div class="client-logo"><img src="logos/Concacaf_logo.svg" alt="CONCACAF"></div>
                 <div class="client-logo logo-color"><img src="logos/Roshn_Saudi_League_Logo.svg.png" alt="Saudi Pro League"></div>
                 <div class="client-logo"><img src="logos/BBC_Logo_2021.svg.png" alt="BBC"></div>
+                <div class="client-logo"><span class="logo-text">BBC ALBA</span></div>
+                <div class="client-logo"><span class="logo-text">BBC Snooker</span></div>
+                <div class="client-logo"><span class="logo-text">BBC Bowls</span></div>
                 <div class="client-logo"><img src="logos/ITV1_logo_(2022).svg.png" alt="ITV"></div>
                 <div class="client-logo"><img src="logos/TNT_Sports_(2023).svg.png" alt="TNT Sports"></div>
                 <div class="client-logo"><img src="logos/BT_Sport_logo_2019.svg.png" alt="BT Sport"></div>
-                <div class="client-logo"><img src="logos/STV_logo_2014.svg.png" alt="STV"></div>
+                <div class="client-logo"><span class="logo-text">IMG</span></div>
+                <div class="client-logo"><span class="logo-text">Premier Sports</span></div>
+                <div class="client-logo"><span class="logo-text">HBS</span></div>
+                <div class="client-logo"><span class="logo-text">Sunset + Vine</span></div>
             </div>
             <div class="clients-track">
                 <div class="client-logo"><img src="logos/FIFA_logo_without_slogan.svg.png" alt="FIFA"></div>
@@ -2168,10 +2205,16 @@
                 <div class="client-logo"><img src="logos/Concacaf_logo.svg" alt="CONCACAF"></div>
                 <div class="client-logo logo-color"><img src="logos/Roshn_Saudi_League_Logo.svg.png" alt="Saudi Pro League"></div>
                 <div class="client-logo"><img src="logos/BBC_Logo_2021.svg.png" alt="BBC"></div>
+                <div class="client-logo"><span class="logo-text">BBC ALBA</span></div>
+                <div class="client-logo"><span class="logo-text">BBC Snooker</span></div>
+                <div class="client-logo"><span class="logo-text">BBC Bowls</span></div>
                 <div class="client-logo"><img src="logos/ITV1_logo_(2022).svg.png" alt="ITV"></div>
                 <div class="client-logo"><img src="logos/TNT_Sports_(2023).svg.png" alt="TNT Sports"></div>
                 <div class="client-logo"><img src="logos/BT_Sport_logo_2019.svg.png" alt="BT Sport"></div>
-                <div class="client-logo"><img src="logos/STV_logo_2014.svg.png" alt="STV"></div>
+                <div class="client-logo"><span class="logo-text">IMG</span></div>
+                <div class="client-logo"><span class="logo-text">Premier Sports</span></div>
+                <div class="client-logo"><span class="logo-text">HBS</span></div>
+                <div class="client-logo"><span class="logo-text">Sunset + Vine</span></div>
             </div>
         </div>
     </section>
@@ -2272,6 +2315,61 @@
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Saudi_Leauge.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">Multiple Editions</span>
+                    <h3>KINGS CUP FINALS</h3>
+                    <p>Multiple Kings Cup Final productions</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/copa_america_2024.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">Final</span>
+                    <h3>AMIR CUP FINAL</h3>
+                    <p>Prestigious cup final coverage</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/champions_league.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">Final</span>
+                    <h3>ACF FINAL</h3>
+                    <p>Arab Champions Final live production</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/Concacaf_Gold_Cup_2021.jpg');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">Final</span>
+                    <h3>SUPER CUP FINAL</h3>
+                    <p>Super Cup Final broadcast production</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="portfolio-card reveal-scale">
+                <div class="portfolio-card-bg" style="background-image: url('featured projects/2022_FIFA_World_Cup.png');"></div>
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-card-year">Final</span>
+                    <h3>AMIR CUP FINAL (QATAR)</h3>
+                    <p>Qatar's premier cup final coverage</p>
+                </div>
+                <div class="portfolio-card-link">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2283,6 +2381,14 @@
             <p class="section-subtitle">Comprehensive production solutions for every aspect of football broadcasting</p>
         </div>
         <div class="services-grid reveal-stagger">
+            <div class="service-card reveal-scale">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Consultancy Services</h3>
+                <p>Expert guidance for broadcasters, federations, and rights holders looking to elevate their football coverage. Drawing on three decades of experience across FIFA, UEFA, and CONMEBOL competitions, we provide strategic consultancy on broadcast workflows, technical infrastructure, and production best practices tailored to your organisation's needs.</p>
+                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
+            </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
                     <i class="fas fa-broadcast-tower"></i>
@@ -2305,14 +2411,6 @@
                 </div>
                 <h3>Event Production</h3>
                 <p>Complete event direction for football's marquee moments. From the FIFA Club World Cup Draw in Saudi Arabia to Copa America's spectacular opening ceremonies - we manage every aspect of production to create unforgettable broadcast experiences that resonate with global audiences.</p>
-                <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card reveal-scale">
-                <div class="service-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>Consultancy Services</h3>
-                <p>Expert guidance for broadcasters, federations, and rights holders looking to elevate their football coverage. Drawing on three decades of experience across FIFA, UEFA, and CONMEBOL competitions, we provide strategic consultancy on broadcast workflows, technical infrastructure, and production best practices tailored to your organisation's needs.</p>
                 <a href="#contact" class="service-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -2376,7 +2474,7 @@
                         <i class="fas fa-futbol"></i>
                     </div>
                     <div class="chat-header-info">
-                        <h4>Football Pass Bot</h4>
+                        <h4>Football Pass Concierge</h4>
                         <p>Online</p>
                     </div>
                 </div>
@@ -2425,10 +2523,10 @@
             <div class="footer-nav">
                 <h4 class="footer-heading">Services</h4>
                 <ul class="footer-links">
+                    <li><a href="#services">Consultancy Services</a></li>
                     <li><a href="#services">Live Broadcasting</a></li>
                     <li><a href="#services">Executive Producer</a></li>
                     <li><a href="#services">Event Production</a></li>
-                    <li><a href="#services">Consultancy Services</a></li>
                 </ul>
             </div>
             <div class="footer-nav">
