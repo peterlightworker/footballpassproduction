@@ -431,12 +431,15 @@
         }
 
         .region-container {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 4rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .region-copy {
+            max-width: 700px;
         }
 
         .region-copy h2 {
@@ -459,7 +462,7 @@
 
         .region-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
         }
 
@@ -481,6 +484,8 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .region-item:hover .region-item-img {
@@ -1124,23 +1129,11 @@
         .service-card p {
             color: var(--gray);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex: 1;
         }
 
-        .service-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .service-link:hover {
-            gap: 1rem;
+        .services-cta {
+            text-align: center;
+            margin-top: 3rem;
         }
 
         /* Testimonials Section */
@@ -1622,6 +1615,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .region-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .consultancy-grid,
             .pathways-grid,
             .cv-grid {
@@ -1695,8 +1692,7 @@
             }
 
             .region-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
             }
         }
 
@@ -2540,6 +2536,414 @@
         .scroll-indicator {
             animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) 1.2s both, bounce 2s infinite 2.4s;
         }
+        /* =============================================
+           HOVER — ABOUT PHOTO
+           ============================================= */
+
+        .about-image-main {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: default;
+        }
+
+        .about-image:hover .about-image-main {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 3px var(--primary), 0 30px 60px rgba(0, 255, 136, 0.2);
+        }
+
+        /* Scanning line that sweeps across on hover */
+        .about-image-main::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .about-image:hover .about-image-main::after {
+            opacity: 1;
+            animation: scanLine 1.4s ease-in-out forwards;
+        }
+
+        @keyframes scanLine {
+            0%   { top: -5%; }
+            100% { top: 105%; }
+        }
+
+        /* Accent block reacts too */
+        .about-image-accent {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .about-image:hover .about-image-accent {
+            transform: translate(6px, 6px);
+        }
+
+        /* Feature cards in About */
+        .about-feature {
+            transition: transform 0.3s ease;
+        }
+
+        .about-feature:hover {
+            transform: translateX(6px);
+        }
+
+        .about-feature-icon {
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .about-feature:hover .about-feature-icon {
+            background: rgba(0, 255, 136, 0.25);
+            box-shadow: 0 0 16px rgba(0, 255, 136, 0.3);
+            transform: rotate(6deg) scale(1.1);
+        }
+
+        .about-feature h4 {
+            transition: color 0.3s ease;
+        }
+
+        .about-feature:hover h4 {
+            color: var(--primary);
+        }
+
+        /* =============================================
+           HOVER — SHOWREEL FRAME
+           ============================================= */
+
+        .showreel-frame {
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+        }
+
+        .showreel-frame:hover {
+            box-shadow: 0 0 0 2px var(--primary), 0 30px 80px rgba(0, 255, 136, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .showreel-tags span {
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            cursor: default;
+        }
+
+        .showreel-tags span:hover {
+            background: rgba(0, 255, 136, 0.18);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* =============================================
+           HOVER — STAT CARDS (pulse icon on hover)
+           ============================================= */
+
+        .stat-icon {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.15) rotate(-6deg);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .stat-number {
+            transition: color 0.3s ease;
+        }
+
+        .stat-card:hover .stat-number {
+            color: var(--primary);
+        }
+
+        /* =============================================
+           HOVER — SERVICE CARDS (icon bounce, text reveal)
+           ============================================= */
+
+        .service-icon {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.25);
+        }
+
+        .service-card h3 {
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .service-card p {
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* =============================================
+           HOVER — TESTIMONIAL (quote mark pulses)
+           ============================================= */
+
+        .testimonial-quote {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-quote {
+            opacity: 0.7;
+            transform: scale(1.15) translateY(-4px);
+        }
+
+        .testimonial-card:hover .testimonial-text {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .testimonial-avatar {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-avatar {
+            transform: scale(1.12);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        /* =============================================
+           HOVER — NAV LINKS (underline draw)
+           ============================================= */
+
+        .nav-links a:not(.nav-cta) {
+            transition: color 0.3s ease, letter-spacing 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta):hover {
+            letter-spacing: 1.5px;
+        }
+
+        /* =============================================
+           HOVER — CONTACT INFO ITEMS
+           ============================================= */
+
+        .contact-item {
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(6px);
+        }
+
+        .contact-item-icon {
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-item:hover .contact-item-icon {
+            background: var(--primary);
+            box-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+            transform: scale(1.1);
+        }
+
+        .contact-item:hover .contact-item-icon i {
+            color: var(--dark);
+        }
+
+        /* =============================================
+           HOVER — FOOTER LINKS
+           ============================================= */
+
+        .footer-links a {
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary) !important;
+            padding-left: 6px;
+        }
+
+        /* =============================================
+           TOUCH SUPPORT — .touch-active mirrors :hover
+           on mobile & tablet for cards that need it
+           ============================================= */
+
+        .region-item.touch-active {
+            border-color: rgba(255, 50, 50, 0.6) !important;
+            box-shadow: 0 0 0 1px rgba(255, 50, 50, 0.5), 0 16px 40px rgba(255, 50, 50, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .region-item.touch-active .region-item-onair {
+            opacity: 1;
+        }
+
+        .region-item.touch-active .region-item-content h3 {
+            color: #ff6b6b;
+        }
+
+        .region-item.touch-active .region-item-content p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .cv-group.touch-active {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 1px var(--primary), 0 16px 40px rgba(0, 255, 136, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .cv-group.touch-active .cv-list li {
+            color: var(--light);
+            padding-left: 0.6rem;
+        }
+
+        .cv-group.touch-active .cv-group-content h3 {
+            color: var(--primary);
+        }
+
+        /* =============================================
+           HOVER — CV GROUP (World Class Experience)
+           ============================================= */
+
+        .cv-group {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .cv-group:hover {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 1px var(--primary), 0 16px 40px rgba(0, 255, 136, 0.12);
+            transform: translateY(-4px);
+        }
+
+        /* Animate list items on cv-group hover */
+        .cv-group .cv-list li {
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+
+        .cv-group:hover .cv-list li {
+            color: var(--light);
+            padding-left: 0.6rem;
+        }
+
+        .cv-group:hover .cv-list li::before {
+            content: '▸ ';
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        .cv-group-content h3 {
+            transition: color 0.3s ease;
+        }
+
+        .cv-group:hover .cv-group-content h3 {
+            color: var(--primary);
+        }
+
+        /* =============================================
+           HOVER INTERACTIONS — REGION ITEM (Middle East)
+           ============================================= */
+
+        .region-item {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .region-item:hover {
+            border-color: rgba(255, 50, 50, 0.6) !important;
+            box-shadow: 0 0 0 1px rgba(255, 50, 50, 0.5), 0 16px 40px rgba(255, 50, 50, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* ON AIR overlay */
+        .region-item-onair {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            background: rgba(10, 5, 5, 0.72);
+            backdrop-filter: blur(3px);
+            height: 140px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .region-item:hover .region-item-onair {
+            opacity: 1;
+        }
+
+        .onair-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
+            color: #fff;
+        }
+
+        .onair-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff3232;
+            box-shadow: 0 0 8px #ff3232;
+            animation: pulseRed 1s ease-in-out infinite;
+        }
+
+        @keyframes pulseRed {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px #ff3232; }
+            50% { opacity: 0.3; box-shadow: 0 0 2px #ff3232; }
+        }
+
+        .onair-timecode {
+            font-family: 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 2px;
+        }
+
+        /* Slide-up text on region-item content hover */
+        .region-item-content h3 {
+            transition: color 0.3s ease;
+        }
+
+        .region-item:hover .region-item-content h3 {
+            color: #ff6b6b;
+        }
+
+        .region-item-content p {
+            transition: color 0.3s ease;
+        }
+
+        .region-item:hover .region-item-content p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* =============================================
+           GENERAL HOVER POLISH — CONSULTANCY CARDS
+           ============================================= */
+
+        .consultancy-item {
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .consultancy-item:hover {
+            border-color: var(--primary) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .consultancy-item:hover h3 {
+            color: var(--primary);
+        }
+
     </style>
 </head>
 <body>
@@ -2773,42 +3177,72 @@
             </div>
             <div class="region-grid reveal-stagger">
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/Saudi_Leauge.jpg');"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/Saudi_Leauge.jpg');">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>Saudi Pro League</h3>
                         <p>Senior live sport experience across the Kingdom's top-flight football coverage.</p>
                     </div>
                 </div>
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/saudi_kings_cup.jpg'); background-position: center center;"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/saudi_kings_cup.jpg'); background-position: center center;">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>Saudi Kings Cup</h3>
                         <p>Regional cup-final experience where production planning, ceremony, and match coverage meet.</p>
                     </div>
                 </div>
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/saudi_2034_world_cup_draw.png'); background-position: center center;"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/saudi_2034_world_cup_draw.png'); background-position: center center;">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>2034 FIFA World Cup Draw — Saudi Arabia</h3>
                         <p>Saudi Arabia live event broadcast experience for a global football property.</p>
                     </div>
                 </div>
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/2022_FIFA_World_Cup.png');"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/2022_FIFA_World_Cup.png');">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>FIFA World Cup 2022 Qatar</h3>
                         <p>World Cup matchday experience in the region, including high-pressure knockout coverage.</p>
                     </div>
                 </div>
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/2022_FIFA_World_Cup.png'); background-position: center 60%;"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/2022_FIFA_World_Cup.png'); background-position: center 60%;">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>Amir Cup Final, Qatar</h3>
                         <p>Prestige final experience across regional live sport production environments.</p>
                     </div>
                 </div>
                 <div class="region-item reveal-scale">
-                    <div class="region-item-img" style="background-image: url('featured-projects/copa_america_2024.jpg');"></div>
+                    <div class="region-item-img" style="background-image: url('featured-projects/copa_america_2024.jpg');">
+                        <div class="region-item-onair">
+                            <div class="onair-label"><span class="onair-dot"></span>ON AIR</div>
+                            <div class="onair-timecode js-timecode">00:00:00:00</div>
+                        </div>
+                    </div>
                     <div class="region-item-content">
                         <h3>Regional Finals &amp; Ceremonies</h3>
                         <p>Live sport ceremony and final delivery across football's biggest broadcast moments.</p>
@@ -2921,7 +3355,7 @@
                         <li>Saudi Kings Cup</li>
                         <li>FIFA World Cup 2022 Qatar</li>
                         <li>Amir Cup Final, Qatar</li>
-                        <li>FIFA Club World Cup Draw, Saudi Arabia</li>
+                        <li>FIFA World Cup Draw 2034, Saudi Arabia</li>
                     </ul>
                 </div>
             </div>
@@ -2993,7 +3427,6 @@
                 </div>
                 <h3>Initial Requirements Meeting</h3>
                 <p>A focused discussion to understand the broadcast challenge, event context, production workflow, or coverage standard required.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
@@ -3001,7 +3434,6 @@
                 </div>
                 <h3>Broadcast Workflow Review</h3>
                 <p>Review production workflows, team responsibilities, communication, technical planning, and live event readiness.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
@@ -3009,7 +3441,6 @@
                 </div>
                 <h3>Match Coverage Advisory</h3>
                 <p>Senior review of match coverage, gallery decisions, camera priorities, editorial rhythm, and replay strategy.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
@@ -3017,7 +3448,6 @@
                 </div>
                 <h3>Tournament Readiness Consultancy</h3>
                 <p>Guidance for federations, rights holders, leagues, and production companies preparing for live sport events.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
@@ -3025,7 +3455,6 @@
                 </div>
                 <h3>Production Team Mentoring</h3>
                 <p>Practical senior guidance for directors, producers, and production teams who need elite-level broadcast standards.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="service-card reveal-scale">
                 <div class="service-icon">
@@ -3033,8 +3462,10 @@
                 </div>
                 <h3>Event &amp; Ceremony Broadcast Planning</h3>
                 <p>Advisory for live ceremonies, finals, draws, and football moments where sport production and show production meet.</p>
-                <a href="#contact" class="service-link">Discuss Requirements <i class="fas fa-arrow-right"></i></a>
             </div>
+        </div>
+        <div class="services-cta reveal">
+            <a href="#contact" class="btn btn-primary">Start The Conversation</a>
         </div>
     </section>
 
@@ -3552,6 +3983,82 @@
                     });
                 }
             });
+        });
+
+        // ── TOUCH INTERACTIONS ─────────────────────────────────────────────
+        // On mobile/tablet, tapping a region-item or cv-group activates the
+        // same visual state as :hover. Tapping again or tapping elsewhere deactivates.
+        (function() {
+            function bindTouch(selector, cls) {
+                const items = document.querySelectorAll(selector);
+                items.forEach(item => {
+                    item.addEventListener('touchstart', function(e) {
+                        // If already active, let touchend deactivate
+                        const wasActive = this.classList.contains(cls);
+                        // Deactivate all others in same group
+                        items.forEach(i => i.classList.remove(cls));
+                        if (!wasActive) {
+                            this.classList.add(cls);
+                            e.preventDefault(); // prevent ghost click scroll-jump
+                        }
+                    }, { passive: false });
+                });
+
+                // Tapping outside any item deactivates
+                document.addEventListener('touchstart', function(e) {
+                    if (!e.target.closest(selector)) {
+                        document.querySelectorAll(selector).forEach(i => i.classList.remove(cls));
+                    }
+                });
+            }
+
+            bindTouch('.region-item', 'touch-active');
+            bindTouch('.cv-group', 'touch-active');
+        })();
+
+        // ── TOUCH TIMECODES for ON AIR (mirrors mouseenter/mouseleave on touch) ──
+        // ON AIR timecodes — each card gets its own independent counter that
+        // starts from 00:00:00:00 when the mouse enters and resets on leave.
+        document.querySelectorAll('.region-item').forEach(card => {
+            const tc = card.querySelector('.js-timecode');
+            let startTime = null;
+            let rafId = null;
+            const FPS = 25;
+
+            function formatTC(ms) {
+                const totalFrames = Math.floor(ms / (1000 / FPS));
+                const frames  = totalFrames % FPS;
+                const seconds = Math.floor(ms / 1000) % 60;
+                const minutes = Math.floor(ms / 60000) % 60;
+                const hours   = Math.floor(ms / 3600000) % 24;
+                const pad = n => String(n).padStart(2, '0');
+                return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}:${pad(frames)}`;
+            }
+
+            function startTC() {
+                startTime = null;
+                cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(function tick(ts) {
+                    if (!startTime) startTime = ts;
+                    tc.textContent = formatTC(ts - startTime);
+                    rafId = requestAnimationFrame(tick);
+                });
+            }
+
+            function stopTC() {
+                cancelAnimationFrame(rafId);
+                tc.textContent = '00:00:00:00';
+            }
+
+            card.addEventListener('mouseenter', startTC);
+            card.addEventListener('mouseleave', stopTC);
+
+            // Touch: start when touch-active class added, stop when removed
+            const observer = new MutationObserver(() => {
+                if (card.classList.contains('touch-active')) startTC();
+                else stopTC();
+            });
+            observer.observe(card, { attributes: true, attributeFilter: ['class'] });
         });
     </script>
 </body>
