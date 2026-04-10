@@ -198,6 +198,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            background: var(--dark);
         }
 
         /* Video Placeholder */
@@ -514,6 +515,108 @@
         .about-feature p {
             font-size: 0.85rem;
             color: var(--gray);
+        }
+
+        /* Showreel Section */
+        .showreel {
+            background: #090914;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showreel-container {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showreel-copy h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            line-height: 0.95;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .showreel-copy h2 span {
+            color: var(--primary);
+        }
+
+        .showreel-copy p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+
+        .showreel-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .showreel-tags span {
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            color: var(--light);
+            border-radius: 8px;
+            padding: 0.55rem 0.8rem;
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.06);
+        }
+
+        .showreel-frame {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #030307;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        .showreel-frame-top {
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .showreel-frame-top span {
+            color: #ff4545;
+            font-weight: 700;
+        }
+
+        .showreel-video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            object-fit: cover;
+        }
+
+        .showreel-caption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem;
+            color: var(--gray);
+            font-size: 0.86rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .showreel-caption strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         /* Stats Section */
@@ -1390,6 +1493,15 @@
             .about-content h3 {
                 font-size: 2.5rem;
             }
+
+            .showreel-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .showreel-copy p {
+                max-width: 720px;
+            }
         }
 
         /* Small tablets / large phones (landscape) */
@@ -1446,6 +1558,11 @@
 
             .about-image-main {
                 height: 280px;
+            }
+
+            .showreel-caption {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
             .footer-content {
@@ -1590,6 +1707,20 @@
 
             .about-lead {
                 font-size: 1.2rem;
+            }
+
+            .showreel-copy h2 {
+                font-size: 2.4rem;
+            }
+
+            .showreel-copy p {
+                font-size: 0.95rem;
+            }
+
+            .showreel-frame-top {
+                min-height: 40px;
+                padding: 0 0.75rem;
+                font-size: 0.62rem;
             }
 
             .about-highlights {
@@ -2271,8 +2402,18 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="hero-video.mp4" type="video/mp4">
+            <video
+                class="hero-video js-lazy-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/hero-poster.jpg"
+                data-src-high="assets/video/hero-full-720.mp4"
+                data-src-low="assets/video/hero-full-480.mp4"
+                data-video-role="hero"
+                aria-label="Football Pass live production reel">
             </video>
         </div>
         <div class="hero-content">
@@ -2398,6 +2539,46 @@
                             <p>Industry expertise</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showreel Section -->
+    <section class="showreel" id="showreel">
+        <div class="showreel-container">
+            <div class="showreel-copy reveal-left">
+                <span class="section-label">Behind The Broadcast</span>
+                <h2>INSIDE THE <span>LIVE CUT</span></h2>
+                <p>Every feed, replay, and cue converges into one live decision at a time.</p>
+                <div class="showreel-tags">
+                    <span>Multiview</span>
+                    <span>Match Direction</span>
+                    <span>Live Control Room</span>
+                </div>
+            </div>
+            <div class="showreel-frame reveal-right">
+                <div class="showreel-frame-top">
+                    <span>On Air</span>
+                    <div>Football Pass Productions</div>
+                </div>
+                <video
+                    class="showreel-video js-lazy-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                    preload="none"
+                    poster="assets/video/gp-footy-pass-poster.jpg"
+                    data-src-high="assets/video/gp-footy-pass-720.mp4"
+                    data-src-low="assets/video/gp-footy-pass-480.mp4"
+                    data-video-role="showreel"
+                    aria-label="Football Pass control room showreel">
+                </video>
+                <div class="showreel-caption">
+                    <strong>Director's view</strong>
+                    <span>Live football coverage from the control room.</span>
                 </div>
             </div>
         </div>
@@ -2945,6 +3126,79 @@
                 mobileMenu.classList.remove('active');
             });
         });
+
+        // Connection-aware video loading
+        (function() {
+            const videos = document.querySelectorAll('.js-lazy-video');
+            if (!videos.length) return;
+
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const saveData = Boolean(connection && connection.saveData);
+            const slowConnection = Boolean(connection && /^(slow-2g|2g|3g)$/.test(connection.effectiveType || ''));
+            const narrowViewport = window.matchMedia('(max-width: 760px)').matches;
+            const shouldUseLow = saveData || slowConnection || narrowViewport;
+
+            function sourceFor(video, forceLow) {
+                if (forceLow || shouldUseLow) {
+                    return video.dataset.srcLow || video.dataset.srcHigh;
+                }
+                return video.dataset.srcHigh || video.dataset.srcLow;
+            }
+
+            function loadVideo(video, forceLow = false, shouldAutoplay = true) {
+                if (video.dataset.loaded === 'true') return;
+                const src = sourceFor(video, forceLow);
+                if (!src) return;
+
+                const source = document.createElement('source');
+                source.src = src;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                video.dataset.loaded = 'true';
+                video.load();
+
+                if (shouldAutoplay && video.autoplay && !reducedMotion && !saveData) {
+                    video.play().catch(() => {});
+                }
+            }
+
+            videos.forEach(video => {
+                video.addEventListener('click', () => {
+                    if (video.dataset.loaded !== 'true') {
+                        loadVideo(video, true, false);
+                    }
+                }, { once: true });
+            });
+
+            if (reducedMotion || saveData) return;
+
+            if (!('IntersectionObserver' in window)) {
+                videos.forEach(video => loadVideo(video));
+                return;
+            }
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    const isShowreel = video.dataset.videoRole === 'showreel';
+
+                    if (entry.isIntersecting) {
+                        loadVideo(video);
+                        if (video.dataset.loaded === 'true' && video.autoplay) {
+                            video.play().catch(() => {});
+                        }
+                    } else if (isShowreel && video.dataset.loaded === 'true') {
+                        video.pause();
+                    }
+                });
+            }, {
+                rootMargin: '500px 0px',
+                threshold: 0.1
+            });
+
+            videos.forEach(video => videoObserver.observe(video));
+        })();
 
         // Counter Animation
         const counters = document.querySelectorAll('.counter');
